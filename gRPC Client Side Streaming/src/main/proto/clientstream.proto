@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package com.sample;
+
+option java_package = "com.example.calculator";
+option java_multiple_files = true;
+
+
+
+message ComputeAverageRequest{
+	int32 number = 1;
+}
+
+message ComputeAverageResponse{
+	double average = 1;
+}	
+
+		
+
+service CalculatorService {
+	
+	//client side streaming
+	
+	rpc ComputeAverage(stream ComputeAverageRequest) returns (ComputeAverageResponse) {};
+	
+	
+}	
